@@ -1,0 +1,1202 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>khaadi.com Alexa Rank, Traffic, Keyword, Audience, Social, and Competitive Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/tailwind.output.css">
+    <script src="assets/js/alpine.min.js" defer=""></script>
+    <script src="assets/js/init-alpine.js"></script>
+    <link rel="stylesheet" href="assets/css/Chart.min.css">
+    <script src="assets/js/Chart.min.js"></script>
+  <style type="text/css">/* Chart.js */
+@keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style></head>
+  <body>
+    <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+      <!-- Desktop sidebar -->
+      <aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
+        <div class="py-4 text-gray-500 dark:text-gray-400">
+          <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="../index.php">
+            Website Stats
+          </a>
+          <ul class="mt-6">
+            <li class="relative px-6 py-3">
+              <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>
+              <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100" href="#traffic_statistics">
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+				  <circle cx="12" cy="12" r="9"></circle>
+				  <path d="M12,3 C 8,3 8,21 12,21 C 16,21 16,3 12,3"></path>
+				  <path d="M3,12 C 3,8 21,8 21,12 C 21,16 3,16 3,12"></path>
+                </svg>
+                <span class="ml-4">Traffic Statistics</span>
+              </a>
+            </li>
+          </ul>
+          <ul>
+            <li class="relative px-6 py-3">
+              <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#keyword_analysis">
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+				<path fill="none" d="M19.129,18.164l-4.518-4.52c1.152-1.373,1.852-3.143,1.852-5.077c0-4.361-3.535-7.896-7.896-7.896
+								c-4.361,0-7.896,3.535-7.896,7.896s3.535,7.896,7.896,7.896c1.934,0,3.705-0.698,5.078-1.853l4.52,4.519
+								c0.266,0.268,0.699,0.268,0.965,0C19.396,18.863,19.396,18.431,19.129,18.164z M8.567,15.028c-3.568,0-6.461-2.893-6.461-6.461
+								s2.893-6.461,6.461-6.461c3.568,0,6.46,2.893,6.46,6.461S12.135,15.028,8.567,15.028z"></path>
+                </svg>
+                <span class="ml-4">Keyword Analysis</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#audience_report">
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                </svg>
+                <span class="ml-4">Audience Report</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#social_engagement">
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+				<path d="M14.68,12.621c-0.9,0-1.702,0.43-2.216,1.09l-4.549-2.637c0.284-0.691,0.284-1.457,0-2.146l4.549-2.638c0.514,0.661,1.315,1.09,2.216,1.09c1.549,0,2.809-1.26,2.809-2.808c0-1.548-1.26-2.809-2.809-2.809c-1.548,0-2.808,1.26-2.808,2.809c0,0.38,0.076,0.741,0.214,1.073l-4.55,2.638c-0.515-0.661-1.316-1.09-2.217-1.09c-1.548,0-2.808,1.26-2.808,2.809s1.26,2.808,2.808,2.808c0.9,0,1.702-0.43,2.217-1.09l4.55,2.637c-0.138,0.332-0.214,0.693-0.214,1.074c0,1.549,1.26,2.809,2.808,2.809c1.549,0,2.809-1.26,2.809-2.809S16.229,12.621,14.68,12.621M14.68,2.512c1.136,0,2.06,0.923,2.06,2.06S15.815,6.63,14.68,6.63s-2.059-0.923-2.059-2.059S13.544,2.512,14.68,2.512M5.319,12.061c-1.136,0-2.06-0.924-2.06-2.06s0.923-2.059,2.06-2.059c1.135,0,2.06,0.923,2.06,2.059S6.454,12.061,5.319,12.061M14.68,17.488c-1.136,0-2.059-0.922-2.059-2.059s0.923-2.061,2.059-2.061s2.06,0.924,2.06,2.061S15.815,17.488,14.68,17.488"></path>
+                </svg>
+                <span class="ml-4">Social Engagement</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#keyword_opportunities">
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+				<path d="M18.303,4.742l-1.454-1.455c-0.171-0.171-0.475-0.171-0.646,0l-3.061,3.064H2.019c-0.251,0-0.457,0.205-0.457,0.456v9.578c0,0.251,0.206,0.456,0.457,0.456h13.683c0.252,0,0.457-0.205,0.457-0.456V7.533l2.144-2.146C18.481,5.208,18.483,4.917,18.303,4.742 M15.258,15.929H2.476V7.263h9.754L9.695,9.792c-0.057,0.057-0.101,0.13-0.119,0.212L9.18,11.36h-3.98c-0.251,0-0.457,0.205-0.457,0.456c0,0.253,0.205,0.456,0.457,0.456h4.336c0.023,0,0.899,0.02,1.498-0.127c0.312-0.077,0.55-0.137,0.55-0.137c0.08-0.018,0.155-0.059,0.212-0.118l3.463-3.443V15.929z M11.241,11.156l-1.078,0.267l0.267-1.076l6.097-6.091l0.808,0.808L11.241,11.156z"></path>                
+                </svg>
+                <span class="ml-4">Keyword Opportunities</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#competitive_analysis">
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+				<path d="M11.709,7.438H8.292c-0.234,0-0.427,0.192-0.427,0.427v8.542c0,0.234,0.192,0.427,0.427,0.427h3.417c0.233,0,0.426-0.192,0.426-0.427V7.865C12.135,7.63,11.942,7.438,11.709,7.438 M11.282,15.979H8.719V8.292h2.563V15.979zM6.156,11.709H2.74c-0.235,0-0.427,0.191-0.427,0.426v4.271c0,0.234,0.192,0.427,0.427,0.427h3.417c0.235,0,0.427-0.192,0.427-0.427v-4.271C6.583,11.9,6.391,11.709,6.156,11.709 M5.729,15.979H3.167v-3.416h2.562V15.979zM17.261,3.167h-3.417c-0.235,0-0.427,0.192-0.427,0.427v12.812c0,0.234,0.191,0.427,0.427,0.427h3.417c0.234,0,0.427-0.192,0.427-0.427V3.594C17.688,3.359,17.495,3.167,17.261,3.167 M16.833,15.979h-2.562V4.021h2.562V15.979z"></path>
+                </svg>
+                <span class="ml-4">Competitive Analysis</span>
+              </a>
+            </li>                        
+          </ul>
+        </div>
+      </aside>
+      <!-- Mobile sidebar -->
+      <!-- Backdrop -->
+      <div x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed flex items-end sm:items-center sm:justify-center" style="display: none;"></div>
+      <aside class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white dark:bg-gray-800 md:hidden" x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150" x-transition:enter-start="opacity-0 transform -translate-x-20" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0 transform -translate-x-20" @click.away="closeSideMenu" @keydown.escape="closeSideMenu" style="display: none;">
+        <div class="py-4 text-gray-500 dark:text-gray-400">
+          <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="../index.php">
+            Website Stats
+          </a>
+          <ul class="mt-6">
+            <li class="relative px-6 py-3">
+              <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>
+              <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100" href="#traffic_statistics">
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+				  <circle cx="12" cy="12" r="9"></circle>
+				  <path d="M12,3 C 8,3 8,21 12,21 C 16,21 16,3 12,3"></path>
+				  <path d="M3,12 C 3,8 21,8 21,12 C 21,16 3,16 3,12"></path>
+                </svg>
+                <span class="ml-4">Traffic Statistics</span>
+              </a>
+            </li>
+          </ul>
+          <ul>
+            <li class="relative px-6 py-3">
+              <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#keyword_analysis">
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+				<path fill="none" d="M19.129,18.164l-4.518-4.52c1.152-1.373,1.852-3.143,1.852-5.077c0-4.361-3.535-7.896-7.896-7.896
+								c-4.361,0-7.896,3.535-7.896,7.896s3.535,7.896,7.896,7.896c1.934,0,3.705-0.698,5.078-1.853l4.52,4.519
+								c0.266,0.268,0.699,0.268,0.965,0C19.396,18.863,19.396,18.431,19.129,18.164z M8.567,15.028c-3.568,0-6.461-2.893-6.461-6.461
+								s2.893-6.461,6.461-6.461c3.568,0,6.46,2.893,6.46,6.461S12.135,15.028,8.567,15.028z"></path>
+                </svg>
+                <span class="ml-4">Keyword Analysis</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#audience_report">
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                </svg>
+                <span class="ml-4">Audience Report</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#social_engagement">
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+				<path d="M14.68,12.621c-0.9,0-1.702,0.43-2.216,1.09l-4.549-2.637c0.284-0.691,0.284-1.457,0-2.146l4.549-2.638c0.514,0.661,1.315,1.09,2.216,1.09c1.549,0,2.809-1.26,2.809-2.808c0-1.548-1.26-2.809-2.809-2.809c-1.548,0-2.808,1.26-2.808,2.809c0,0.38,0.076,0.741,0.214,1.073l-4.55,2.638c-0.515-0.661-1.316-1.09-2.217-1.09c-1.548,0-2.808,1.26-2.808,2.809s1.26,2.808,2.808,2.808c0.9,0,1.702-0.43,2.217-1.09l4.55,2.637c-0.138,0.332-0.214,0.693-0.214,1.074c0,1.549,1.26,2.809,2.808,2.809c1.549,0,2.809-1.26,2.809-2.809S16.229,12.621,14.68,12.621M14.68,2.512c1.136,0,2.06,0.923,2.06,2.06S15.815,6.63,14.68,6.63s-2.059-0.923-2.059-2.059S13.544,2.512,14.68,2.512M5.319,12.061c-1.136,0-2.06-0.924-2.06-2.06s0.923-2.059,2.06-2.059c1.135,0,2.06,0.923,2.06,2.059S6.454,12.061,5.319,12.061M14.68,17.488c-1.136,0-2.059-0.922-2.059-2.059s0.923-2.061,2.059-2.061s2.06,0.924,2.06,2.061S15.815,17.488,14.68,17.488"></path>
+                </svg>
+                <span class="ml-4">Social Engagement</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#keyword_opportunities">
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+				<path d="M18.303,4.742l-1.454-1.455c-0.171-0.171-0.475-0.171-0.646,0l-3.061,3.064H2.019c-0.251,0-0.457,0.205-0.457,0.456v9.578c0,0.251,0.206,0.456,0.457,0.456h13.683c0.252,0,0.457-0.205,0.457-0.456V7.533l2.144-2.146C18.481,5.208,18.483,4.917,18.303,4.742 M15.258,15.929H2.476V7.263h9.754L9.695,9.792c-0.057,0.057-0.101,0.13-0.119,0.212L9.18,11.36h-3.98c-0.251,0-0.457,0.205-0.457,0.456c0,0.253,0.205,0.456,0.457,0.456h4.336c0.023,0,0.899,0.02,1.498-0.127c0.312-0.077,0.55-0.137,0.55-0.137c0.08-0.018,0.155-0.059,0.212-0.118l3.463-3.443V15.929z M11.241,11.156l-1.078,0.267l0.267-1.076l6.097-6.091l0.808,0.808L11.241,11.156z"></path>                
+                </svg>
+                <span class="ml-4">Keyword Opportunities</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="#competitive_analysis">
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+				<path d="M11.709,7.438H8.292c-0.234,0-0.427,0.192-0.427,0.427v8.542c0,0.234,0.192,0.427,0.427,0.427h3.417c0.233,0,0.426-0.192,0.426-0.427V7.865C12.135,7.63,11.942,7.438,11.709,7.438 M11.282,15.979H8.719V8.292h2.563V15.979zM6.156,11.709H2.74c-0.235,0-0.427,0.191-0.427,0.426v4.271c0,0.234,0.192,0.427,0.427,0.427h3.417c0.235,0,0.427-0.192,0.427-0.427v-4.271C6.583,11.9,6.391,11.709,6.156,11.709 M5.729,15.979H3.167v-3.416h2.562V15.979zM17.261,3.167h-3.417c-0.235,0-0.427,0.192-0.427,0.427v12.812c0,0.234,0.191,0.427,0.427,0.427h3.417c0.234,0,0.427-0.192,0.427-0.427V3.594C17.688,3.359,17.495,3.167,17.261,3.167 M16.833,15.979h-2.562V4.021h2.562V15.979z"></path>
+                </svg>
+                <span class="ml-4">Competitive Analysis</span>
+              </a>
+            </li>                        
+          </ul>
+        </div>
+      </aside>
+      <div class="flex flex-col flex-1 w-full">
+        <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
+          <div class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
+            <!-- Mobile hamburger -->
+            <button class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple" @click="toggleSideMenu" aria-label="Menu">
+              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+            <!-- Search input -->
+            <div class="flex justify-center flex-1 lg:mr-32">
+              <div class="relative w-full max-w-xl mr-6 focus-within:text-purple-500">
+                <div class="absolute inset-y-0 flex items-center pl-2">
+                  <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <form name="search_form" method="post" action="../domains.php">
+                <input class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input" type="text" name="domain" placeholder="Search for domain" aria-label="Search">
+                <input type="submit" hidden=""> 
+                </form>              
+              </div>
+            </div>
+          </div>
+        </header>
+        <main class="h-full overflow-y-auto">
+          <div class="container px-6 mx-auto grid">
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+              khaadi.com Overview
+            </h2>
+
+            <!-- Cards -->
+            <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+                          <!-- Card -->
+              <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
+                            <img class="object-cover w-full h-full rounded-full" src="assets/img/alexa_rank.png" alt="" loading="lazy">
+                </div>
+                <div>
+                  <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    Alexa Rank
+                  </p>
+                  <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    49,572                  </p>
+                </div>
+              </div>
+                                        <!-- Card -->
+              <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
+                            <img class="object-cover w-full h-full rounded-full" src="assets/img/page_views.png" alt="" loading="lazy">
+                </div>
+                <div>
+                  <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    Daily Pageviews per Visitor
+                  </p>
+                  <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    6.8                  </p>
+                </div>
+              </div>
+               
+                          <!-- Card -->
+              <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
+                            <img class="object-cover w-full h-full rounded-full" src="assets/img/daily_time.png" alt="" loading="lazy">
+                </div>
+                <div>
+                  <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    Daily Time on Site
+                  </p>
+                  <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    6:27                  </p>
+                </div>
+              </div>
+                             
+                          <!-- Card -->
+              <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
+                            <img class="object-cover w-full h-full rounded-full" src="assets/img/bounce_rate.png" alt="" loading="lazy">
+                </div>
+                <div>
+                  <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    Bounce Rate
+                  </p>
+                  <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    23.6%                  </p>
+                </div>
+              </div>
+               
+                          <!-- Card -->
+              <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
+                            <img class="object-cover w-full h-full rounded-full" src="assets/img/search_traffic.png" alt="" loading="lazy">
+                </div>
+                <div>
+                  <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    Search Traffic
+                  </p>
+                  <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    44%                  </p>
+                </div>
+              </div>
+               
+                          <!-- Card -->
+              <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
+                            <img class="object-cover w-full h-full rounded-full" src="assets/img/linking_sites.png" alt="" loading="lazy">
+                </div>
+                <div>
+                  <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    Total Sites Linking In
+                  </p>
+                  <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    68                  </p>
+                </div>
+              </div>
+                                                                     
+            </div>
+            
+            <!-- Chart -->
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200" id="traffic_statistics">
+              Traffic Statistics
+            </h2>
+            <div class="grid gap-6 mb-8 md:grid-cols-2">
+              <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
+                  Audience Geography
+                </h4>
+                <canvas id="audgeo" width="204" height="102" style="display: block; width: 204px; height: 102px;" class="chartjs-render-monitor"></canvas>
+                <div class="justify-center mt-4 text-sm text-gray-600 dark:text-gray-400">
+                  <!-- Chart legend -->
+
+				<div class="flex items-center">
+                    <span class="inline-block w-3 h-3 mr-1 rounded-full" style="background-color:#d3d3bd"></span>
+                    <span>Pakistan</span>
+                  </div><div class="flex items-center">
+                    <span class="inline-block w-3 h-3 mr-1 rounded-full" style="background-color:#32d39d"></span>
+                    <span>United Arab Emirates</span>
+                  </div><div class="flex items-center">
+                    <span class="inline-block w-3 h-3 mr-1 rounded-full" style="background-color:#e98e26"></span>
+                    <span>United States</span>
+                  </div><div class="flex items-center">
+                    <span class="inline-block w-3 h-3 mr-1 rounded-full" style="background-color:#234467"></span>
+                    <span>Others</span>
+                  </div>                 
+                </div>
+              </div>
+ <script>
+const audgeoConfig = {
+		  type: 'doughnut',
+		  data: {
+		    datasets: [
+		      {
+		        data: [55.3,11.3,4.7,28.7],
+		        backgroundColor: ['#d3d3bd','#32d39d','#e98e26','#234467'],
+		        label: 'Audience Geography',
+		      },
+		    ],
+		    labels: ['Pakistan','United Arab Emirates','United States','Others'],
+		  },
+		  options: {
+		    responsive: true,
+		    cutoutPercentage: 80,
+		    tooltips: {
+		        callbacks: {
+		          label: function(tooltipItem, data) {
+		            return data['labels'][tooltipItem['index']] + ': ' + data['datasets'][0]['data'][tooltipItem['index']] + '%';
+		          }
+		        }
+		      },		    
+		    legend: {
+		      display: false,
+		    },
+		  },
+		}
+		const audgeoCtx = document.getElementById('audgeo')
+		window.myaudgeo = new Chart(audgeoCtx, audgeoConfig)
+</script>  
+
+
+            <!-- New Table -->           
+            <div class="w-full overflow-hidden rounded-lg shadow-xs">
+              <div class="w-full overflow-x-auto">
+              
+                <table class="w-full whitespace-no-wrap">
+                  <thead>
+                    <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                      <th class="px-4 py-3">Visitors by Country</th>
+                      <th class="px-4 py-3">Site Traffic</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+					                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">Pakistan</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        55.3%
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">United Arab Emirates</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        11.3%
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">United States</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        4.7%
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+                <table class="w-full whitespace-no-wrap">
+                  <thead>
+                    <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                      <th class="px-4 py-3">Rankings by Country</th>
+                      <th class="px-4 py-3">Alexa Rank #</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+					                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">Pakistan</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        806
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">United Arab Emirates</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        1,720
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">United States</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        109,438
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>                
+                
+              </div>
+            </div>
+            </div>
+ 
+
+
+
+            <!-- Chart -->
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200" id="keyword_analysis">
+              Keyword Analysis
+            </h2>
+            <div class="grid gap-6 mb-8 md:grid-cols-2">
+              <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
+                  Top Keywords
+                </h4>
+                <canvas id="topkey" width="204" height="102" style="display: block; width: 204px; height: 102px;" class="chartjs-render-monitor"></canvas>
+                <div class="justify-center mt-4 text-sm text-gray-600 dark:text-gray-400">
+                  <!-- Chart legend -->
+
+				<div class="flex items-center">
+                    <span class="inline-block w-3 h-3 mr-1 rounded-full" style="background-color:#2f72db"></span>
+                    <span>khaadi</span>
+                  </div><div class="flex items-center">
+                    <span class="inline-block w-3 h-3 mr-1 rounded-full" style="background-color:#105434"></span>
+                    <span>khaadi sale 2022</span>
+                  </div><div class="flex items-center">
+                    <span class="inline-block w-3 h-3 mr-1 rounded-full" style="background-color:#357e9e"></span>
+                    <span>khaadi sale</span>
+                  </div><div class="flex items-center">
+                    <span class="inline-block w-3 h-3 mr-1 rounded-full" style="background-color:#055076"></span>
+                    <span>khadi</span>
+                  </div><div class="flex items-center">
+                    <span class="inline-block w-3 h-3 mr-1 rounded-full" style="background-color:#002d32"></span>
+                    <span>khaddi</span>
+                  </div>                 
+                </div>
+              </div>
+ <script>
+const topkeyConfig = {
+		  type: 'doughnut',
+		  data: {
+		    datasets: [
+		      {
+		        data: [27.39,7.71,4.38,3.86,2.59,],
+		        backgroundColor: ['#2f72db','#105434','#357e9e','#055076','#002d32',],
+		        label: 'Top Keywords',
+		      },
+		    ],
+		    labels: ['khaadi','khaadi sale 2022','khaadi sale','khadi','khaddi',],
+		  },
+		  options: {
+		    responsive: true,
+		    cutoutPercentage: 80,
+		    tooltips: {
+		        callbacks: {
+		          label: function(tooltipItem, data) {
+		            return data['labels'][tooltipItem['index']] + ': ' + data['datasets'][0]['data'][tooltipItem['index']] + '%';
+		          }
+		        }
+		      },		    
+		    legend: {
+		      display: false,
+		    },
+		  },
+		}
+		const topkeyCtx = document.getElementById('topkey')
+		window.mytopkey = new Chart(topkeyCtx, topkeyConfig)
+</script>  
+
+
+            <!-- New Table -->           
+            <div class="w-full overflow-hidden rounded-lg shadow-xs">
+              <div class="w-full overflow-x-auto">
+              
+                <table class="w-full whitespace-no-wrap">
+                  <thead>
+                    <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                      <th class="px-4 py-3">Top Keywords</th>
+                      <th class="px-4 py-3">Search Traffic</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+					                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">khaadi</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        27.39%
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">khaadi sale 2022</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        7.71%
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">khaadi sale</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        4.38%
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">khadi</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        3.86%
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">khaddi</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        2.59%
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+              
+              </div>
+            </div>
+            </div>
+ 
+
+
+
+            <!-- Chart -->
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200" id="audience_report">
+              Audience Report
+            </h2>
+            <div class="grid gap-6 mb-8 md:grid-cols-2">
+              <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
+                  Audience Overlap
+                </h4>
+                <canvas id="audover" width="204" height="102" style="display: block; width: 204px; height: 102px;" class="chartjs-render-monitor"></canvas>
+                <div class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400">
+				<p>Similar sites that share the same visitors and search keywords with this site.</p>
+
+                </div>
+              </div>
+ <script>
+ const audoverConfig = {
+		  type: 'bar',
+		  data: {
+		    labels: ['limelight.pk','sapphireonline.pk','alkaramstudio.com','gulahmedshop.com','nishatlinen.com',],
+		    datasets: [
+		      {
+		        label: 'Site Overlap Score',
+		        backgroundColor: '#7e3af2',
+		        borderWidth: 1,
+		        data: [56.3,56,50.7,48.1,47.5,],
+		      },
+		    ],
+		  },
+		  options: {
+		    responsive: true,
+		    legend: {
+		      display: false,
+		    },
+		  },
+		}
+
+		const audoverCtx = document.getElementById('audover')
+		window.myaudover = new Chart(audoverCtx, audoverConfig)
+</script>  
+
+
+            <!-- New Table -->           
+            <div class="w-full overflow-hidden rounded-lg shadow-xs">
+              <div class="w-full overflow-x-auto">
+              
+                <table class="w-full whitespace-no-wrap">
+                  <thead>
+                    <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                      <th class="px-4 py-3">Similar Sites</th>
+                      <th class="px-4 py-3">Alexa Rank</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+					                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold"><a href="limelight.pk">limelight.pk</a></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        86,789
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold"><a href="sapphireonline.pk">sapphireonline.pk</a></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        53,484
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold"><a href="alkaramstudio.com">alkaramstudio.com</a></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        131,357
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold"><a href="gulahmedshop.com">gulahmedshop.com</a></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        54,729
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold"><a href="nishatlinen.com">nishatlinen.com</a></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        143,663
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+              
+              </div>
+            </div>
+            </div>
+ 
+
+
+ 
+
+
+            <!-- Chart -->
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200" id="keyword_opportunities">
+			Keyword Opportunities
+            </h2>
+              	             
+            <div class="grid gap-6 mb-8 md:grid-cols-2">
+
+            <!-- New Table -->           
+            <div class="w-full overflow-hidden rounded-lg shadow-xs">           
+              <div class="w-full overflow-x-auto">
+              <h3 class="flex my-6 text-lg font-bold justify-center">
+              Keyword Gaps
+              </h3>
+                <table class="w-full whitespace-no-wrap">
+                  <thead>
+                    <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                      <th class="px-4 py-3">Keyword</th>
+                      <th class="px-4 py-3">Competitors <br>Traffic</th>
+                      <th class="px-4 py-3">Search <br>Popularity</th>                      
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+					                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">unstitched ladies suit</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        38
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        16
+                      </td>                      
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">women's clothing online</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        37
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        29
+                      </td>                      
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">online dress</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        37
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        22
+                      </td>                      
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">pakistani clothes online</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        37
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        19
+                      </td>                      
+                    </tr>
+                  </tbody>
+                </table>   
+       
+                <p><em>These keywords are driving traffic to competitors, but not to this site.</em></p>
+              </div>
+            </div>
+            
+            <!-- New Table -->           
+            <div class="w-full overflow-hidden rounded-lg shadow-xs">           
+              <div class="w-full overflow-x-auto">
+              <h3 class="flex my-6 text-lg font-bold justify-center">
+              Easy-to-Rank Keywords
+              </h3>
+                <table class="w-full whitespace-no-wrap">
+                  <thead>
+                    <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                      <th class="px-4 py-3">Keyword</th>
+                      <th class="px-4 py-3">Relevance to <br>this site</th>
+                      <th class="px-4 py-3">Search <br>Popularity</th>                      
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+					                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">pakistani clothes online</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        51
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        19
+                      </td>                      
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">pakistani dresses</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        54
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        27
+                      </td>                      
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">pakistani dresses online</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        48
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        21
+                      </td>                      
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">pakistani clothing</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        54
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        18
+                      </td>                      
+                    </tr>
+                  </tbody>
+                </table>   
+       
+                <p><em>These are popular keywords within this site's competitive power.</em></p>
+              </div>
+            </div>            
+            
+
+            </div>
+            
+            
+            
+            <div class="grid gap-6 mb-8 md:grid-cols-2">
+
+            <!-- New Table -->           
+            <div class="w-full overflow-hidden rounded-lg shadow-xs">           
+              <div class="w-full overflow-x-auto">
+              <h3 class="flex my-6 text-lg font-bold justify-center">
+              Buyer Keywords
+              </h3>
+                <table class="w-full whitespace-no-wrap">
+                  <thead>
+                    <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                      <th class="px-4 py-3">Keyword</th>
+                      <th class="px-4 py-3">Competitors <br>Traffic</th>
+                      <th class="px-4 py-3">Organic <br>Competition</th>                      
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+					                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">online clothes shopping</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        47
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        58
+                      </td>                      
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">sale on unstitched</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        47
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        51
+                      </td>                      
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">summer sale</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        45
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        68
+                      </td>                      
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">online pakistani clothes</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        45
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        51
+                      </td>                      
+                    </tr>
+                  </tbody>
+                </table>   
+       
+                <p><em>These keywords show a high purchase intent.</em></p>
+              </div>
+            </div>
+            
+            <!-- New Table -->           
+            <div class="w-full overflow-hidden rounded-lg shadow-xs">           
+              <div class="w-full overflow-x-auto">
+              <h3 class="flex my-6 text-lg font-bold justify-center">
+              Optimization Opportunities
+              </h3>
+                <table class="w-full whitespace-no-wrap">
+                  <thead>
+                    <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                      <th class="px-4 py-3">Keyword</th>
+                      <th class="px-4 py-3">Search <br>Popularity</th>
+                      <th class="px-4 py-3">Organic Share <br>of Voice</th>                      
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+					                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">unstitched lawn</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        18
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        2%
+                      </td>                      
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">print kurta</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        19
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        1.24%
+                      </td>                      
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">emporium mall</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        24
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        0.4%
+                      </td>                      
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">ladies dresses</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        28
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        0.55%
+                      </td>                      
+                    </tr>
+                  </tbody>
+                </table>   
+       
+                <p><em>These are very popular keywords that are already driving some traffic to this site.</em></p>
+              </div>
+            </div>            
+            
+
+            </div>            
+            
+            
+            
+ 
+
+
+
+            <!-- Chart -->
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200" id="competitive_analysis">
+			Competitive Analysis
+            </h2>
+            <div class="grid gap-6 mb-8 md:grid-cols-2">
+
+            <!-- New Table -->           
+            <div class="w-full overflow-hidden rounded-lg shadow-xs">
+              <div class="w-full overflow-x-auto">
+              
+                <table class="w-full whitespace-no-wrap">
+                  <thead>
+                    <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                      <th class="px-4 py-3">Websites</th>
+                      <th class="px-4 py-3">Search Traffic</th>                 
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+					                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold"><a href="sapphireonline.pk">sapphireonline.pk</a></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        54.8%
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold"><a href="alkaramstudio.com">alkaramstudio.com</a></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        54.6%
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold"><a href="khaadi.com">khaadi.com</a></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        44%
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold"><a href="limelight.pk">limelight.pk</a></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        42.3%
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold"><a href="nishatlinen.com">nishatlinen.com</a></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        36.3%
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>   
+       
+                
+              </div>
+            </div>
+            
+            <!-- New Table -->           
+            <div class="w-full overflow-hidden rounded-lg shadow-xs">
+              <div class="w-full overflow-x-auto">
+              
+                <table class="w-full whitespace-no-wrap">
+                  <thead>
+                    <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                      <th class="px-4 py-3">Website</th>
+                      <th class="px-4 py-3">Referral Sites</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+					                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold"><a href="khaadi.com">khaadi.com</a></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        68
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold"><a href="alkaramstudio.com">alkaramstudio.com</a></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        51
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold"><a href="sapphireonline.pk">sapphireonline.pk</a></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        37
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold"><a href="nishatlinen.com">nishatlinen.com</a></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        32
+                      </td>
+                    </tr>                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold"><a href="limelight.pk">limelight.pk</a></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                        26
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>   
+       
+                
+              </div>
+            </div>           
+            
+            </div>
+
+
+            <p class="my-6 text-xs font-semibold text-gray-600 dark:text-gray-400">
+             Copyright © 2024 <a href="https://www.alreadycoded.com" target="_blank">AlreadyCoded</a>
+            </p>            
+          </div>
+        </main>
+      </div>
+    </div>
+  
+
+</body>
