@@ -77,7 +77,7 @@ app.get("/get-analytics-page", async (req, res) => {
       totalSitesLinkingIn,
     };
 
-    console.log("Stored additional data object:", additionalDataObject);
+    // console.log("Stored additional data object:", additionalDataObject);
 
     //visitors Data
     const visitorsData = [];
@@ -89,7 +89,7 @@ app.get("/get-analytics-page", async (req, res) => {
         const traffic = $(element).find("td.px-4.py-3.text-sm").text().trim();
         visitorsData.push(`${country}: ${traffic}`);
       });
-    console.log("Extracted visitorsData:", visitorsData);
+    // console.log("Extracted visitorsData:", visitorsData);
     //Alexa Ranking
     const AlexaRanking = [];
     $("table.w-full.whitespace-no-wrap")
@@ -103,7 +103,7 @@ app.get("/get-analytics-page", async (req, res) => {
         const alexaRank = $(element).find("td.px-4.py-3.text-sm").text().trim();
         AlexaRanking.push({ country, alexaRank });
       });
-    console.log("Extracted table data:", AlexaRanking);
+    // console.log("Extracted table data:", AlexaRanking);
 
     // Function to fetch data from the HTML table and store it in an object(top keywords)
     const fetchTableData = () => {
@@ -130,7 +130,7 @@ app.get("/get-analytics-page", async (req, res) => {
     };
 
     const topKeywordsData = fetchTableData();
-    console.log("Extracted topKeywordsData:", topKeywordsData);
+    // console.log("Extracted topKeywordsData:", topKeywordsData);
     // Function to fetch data from the "Similar Sites" table and store it in an object
     const fetchSimilarSitesData = () => {
       const tableData = [];
@@ -154,7 +154,7 @@ app.get("/get-analytics-page", async (req, res) => {
     };
 
     const similarSitesData = fetchSimilarSitesData();
-    console.log("Extracted similarSitesData:", similarSitesData);
+    // console.log("Extracted similarSitesData:", similarSitesData);
     // Function to fetch data from the provided HTML table (Referal Sites )
     const ReferalSites = (html) => {
       const $ = cheerio.load(html);
@@ -180,7 +180,7 @@ app.get("/get-analytics-page", async (req, res) => {
     };
     // Call the Referal Sites function to fetch data from the provided table HTML
     const ReferalSitesData = ReferalSites(analyticsPage);
-    console.log("Extracted ReferalSitesData:", ReferalSitesData);
+    // console.log("Extracted ReferalSitesData:", ReferalSitesData);
 
     // Update paths to local assets
     $(
@@ -223,9 +223,194 @@ app.get("/get-analytics-page", async (req, res) => {
     imagePaths.forEach((oldSrc, index) => {
       $(`img[src="${oldSrc}"]`).attr("src", newImagePaths[index]);
     });
-    // Send the modified HTML as a response
+    // Send the modified HTML as a response wdwad
     analyticsPage = $.html();
     res.json(analyticsPage);
+  } catch (err) {
+    console.error("Error scraping data:", err);
+    res.status(500).send("Something went wrong!");
+  }
+});
+//get AlexaRanking Data
+
+app.get("/get-AlexaRanking", async (req, res) => {
+    const { url } = req.query; // Extract the 'url' query parameter
+  try {
+    // Simulated function to fetch HTML data from the provided URL
+    let analyticsPage = await scrapAllData(url);
+    // Load the HTML data using Cheerio
+    const $ = cheerio.load(analyticsPage);
+    //Alexa Rank
+    // Extract additional text array
+    const additionalText1Array = $(
+      "p.text-lg.font-semibold.text-gray-700.dark\\:text-gray-200"
+    )
+      .map((i, el) => $(el).text().trim())
+      .get();
+    // console.log('Extracted additionalText1Array:', additionalText1Array);
+
+    // Map values from additionalText1Array to variables
+    const alexaRank = additionalText1Array[0] || "";
+    const dailyPageviewsPerVisitor = additionalText1Array[1] || "";
+    const dailyTimeOnSite = additionalText1Array[2] || "";
+    const bounceRate = additionalText1Array[3] || "";
+    const searchTraffic = additionalText1Array[4] || "";
+    const totalSitesLinkingIn = additionalText1Array[5] || "";
+    //Stores AlexaRank Data in object
+    const additionalDataObject = {
+      alexaRank,
+      dailyPageviewsPerVisitor,
+      dailyTimeOnSite,
+      bounceRate,
+      searchTraffic,
+      totalSitesLinkingIn,
+    };
+    console.log("Stored additional data object:", additionalDataObject);
+    // Send the modified HTML as a response wdwad
+    
+    res.json(additionalDataObject);
+  } catch (err) {
+    console.error("Error scraping data:", err);
+    res.status(500).send("Something went wrong!");
+  }
+});
+//Get VisitorsData
+app.get("/get-VisitorsData", async (req, res) => {
+    const { url } = req.query; // Extract the 'url' query parameter
+  try {
+    // Simulated function to fetch HTML data from the provided URL
+    let analyticsPage = await scrapAllData(url);
+    // Load the HTML data using Cheerio
+    const $ = cheerio.load(analyticsPage);
+     //visitors Data
+     const visitorsData = [];
+     $("table.w-full.whitespace-no-wrap")
+       .first()
+       .find("tbody tr")
+       .each((index, element) => {
+         const country = $(element).find("p.font-semibold").text().trim();
+         const traffic = $(element).find("td.px-4.py-3.text-sm").text().trim();
+         visitorsData.push(`${country}: ${traffic}`);
+       });
+     console.log("Extracted visitorsData:", visitorsData);
+    
+    // Send the modified HTML as a response wdwad
+    
+    res.json(visitorsData);
+  } catch (err) {
+    console.error("Error scraping data:", err);
+    res.status(500).send("Something went wrong!");
+  }
+});
+
+
+//visitorCountry
+app.get("/get-VisitorCountry", async (req, res) => {
+    const { url } = req.query; // Extract the 'url' query parameter
+  try {
+    // Simulated function to fetch HTML data from the provided URL
+    let analyticsPage = await scrapAllData(url);
+    // Load the HTML data using Cheerio
+    const $ = cheerio.load(analyticsPage);
+    const VisitorCountryRanking = [];
+    $("table.w-full.whitespace-no-wrap")
+      .eq(1)
+      .find("tbody tr")
+      .each((index, element) => {
+        const country = $(element)
+          .find("td.px-4.py-3 .font-semibold")
+          .text()
+          .trim();
+        const alexaRank = $(element).find("td.px-4.py-3.text-sm").text().trim();
+        VisitorCountryRanking.push({ country, alexaRank });
+      });
+    console.log("Extracted table data:", VisitorCountryRanking);
+    
+    res.json(VisitorCountryRanking);
+  } catch (err) {
+    console.error("Error scraping data:", err);
+    res.status(500).send("Something went wrong!");
+  }
+});
+
+//Topkeywords
+app.get("/get-TopKeywords", async (req, res) => {
+    const { url } = req.query; // Extract the 'url' query parameter
+  try {
+    // Simulated function to fetch HTML data from the provided URL
+    let analyticsPage = await scrapAllData(url);
+    // Load the HTML data using Cheerio
+    const $ = cheerio.load(analyticsPage);
+    // Function to fetch data from the HTML table and store it in an object(top keywords)
+    const fetchTableData = () => {
+        const tableData = [];
+  
+        // Get all rows of the table body
+        $("table.w-full.whitespace-no-wrap")
+          .eq(2)
+          .find("tbody tr")
+          .each((index, element) => {
+            const keyword = $(element)
+              .find("td.px-4.py-3 .font-semibold")
+              .text()
+              .trim();
+            const searchTraffic = $(element)
+              .find("td.px-4.py-3.text-sm")
+              .text()
+              .trim();
+  
+            tableData.push({ keyword, searchTraffic });
+          });
+  
+        return tableData;
+      };
+  
+      const topKeywordsData = fetchTableData();
+      console.log("Extracted topKeywordsData:", topKeywordsData);
+    
+    res.json(topKeywordsData);
+  } catch (err) {
+    console.error("Error scraping data:", err);
+    res.status(500).send("Something went wrong!");
+  }
+});
+
+//Similar Sites Data
+//Topkeywords
+app.get("/get-ReferalSites", async (req, res) => {
+    const { url } = req.query; // Extract the 'url' query parameter
+  try {
+    // Simulated function to fetch HTML data from the provided URL
+    let analyticsPage = await scrapAllData(url);
+    // Load the HTML data using Cheerio
+    const $ = cheerio.load(analyticsPage);
+   // Function to fetch data from the provided HTML table (Referal Sites )
+   const ReferalSites = (html) => {
+    const $ = cheerio.load(html);
+    const tableData = [];
+
+    // Select all rows in the table body
+    $("table.w-full.whitespace-no-wrap")
+      .last()
+      .find("tbody tr")
+      .each((index, element) => {
+        const website = $(element)
+          .find("td.px-4.py-3 .font-semibold a")
+          .attr("href");
+        const ReferalSite = parseInt(
+          $(element).find("td.px-4.py-3.text-sm").eq(0).text().trim(),
+          10
+        );
+
+        tableData.push({ website, ReferalSite });
+      });
+
+    return tableData;
+  };
+  // Call the Referal Sites function to fetch data from the provided table HTML
+  const ReferalSitesData = ReferalSites(analyticsPage);
+    
+    res.json(ReferalSitesData);
   } catch (err) {
     console.error("Error scraping data:", err);
     res.status(500).send("Something went wrong!");
