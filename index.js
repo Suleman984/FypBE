@@ -9,8 +9,44 @@ const path = require("path");
 const bodyParser = require('body-parser');
 const csvWriter = require("csv-write-stream");
 const apiUrl = "http://gh-export.us/webstats/siteinfo/";
+const mongoose = require('mongoose');
+const { MongoClient } = require("mongodb");
 app.use(cors());
 app.listen(3001);
+//mongosetup
+// Replace the uri string with your connection string.
+const uri = "mongodb://0.0.0.0:27017/";
+const client = new MongoClient(uri);
+
+async function run() {
+  try {
+    await client.connect();
+    const database = client.db('FYP');
+    const toolsAndTechCollection = database.collection('ToolsandTech');
+
+    // Endpoint to fetch data from ToolsandTech collection
+    app.get('/get-toolsandtech', async (req, res) => {
+      try {
+        const toolsAndTechData = await toolsAndTechCollection.find({}).toArray();
+        res.json(toolsAndTechData);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+        res.status(500).send("Error fetching data from database");
+      }
+    });
+
+    // app.listen(port, () => {
+    //   console.log(`Server is running on http://localhost:${port}`);
+    // });
+
+  } catch (error) {
+    console.error("Error connecting to database: ", error);
+  }
+}
+
+run().catch(console.dir);
+//mongosetup finished
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
@@ -111,7 +147,7 @@ app.post("/get-analytics-page", async (req, res) => {
 //get AlexaRanking Data
 
 app.post("/get-AlexaRanking", async (req, res) => {
-  console.log("my req is here ", req.body)
+  // console.log("my req is here ", req.body)
   const  url  = req.body.params.url; // Extract the 'url' query parameter
   try {
     // Simulated function to fetch HTML data from the provided URL
@@ -294,9 +330,34 @@ app.post("/get-ReferalSites", async (req, res) => {
   }
 });
 
+//mongosetup
+// app.use(express.json());
+// const uri = 'mongodb://localhost:27017/ToolsandTech';
 
+// mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-app.post('/testData', async(req, res) =>{
-  console.log(req.body)
-  res.json("Im response")
-})
+// const connection = mongoose.connection;
+// connection.once('open', () => {
+//   console.log('MongoDB database connection established successfully');
+// });
+
+// // Define your schema and model
+// const toolSchema = new mongoose.Schema({
+//   title: String,
+//   imageAddress: String,
+//   url: String,
+//   text: String
+// });
+
+// const ToolsandTech = mongoose.model('ToolsandTech', toolSchema);
+
+// // Define your routes
+// app.get('/get-toolsandtech', async (req, res) => {
+//   try {
+//     const tools = await ToolsandTech.find();
+//     res.json(tools);
+//   } catch (err) {
+//     console.log(err)
+//     res.status(500).json({ message: err.message });
+//   }
+// });

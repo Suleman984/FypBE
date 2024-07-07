@@ -10,6 +10,6 @@ export async function scrapAllData(url) {
   });
 
   await browser.close();
-  console.log(result)
+  // console.log(result)
   return result;
 }
