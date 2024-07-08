@@ -18,9 +18,13 @@ app.listen(3001);
 const uri = "mongodb://0.0.0.0:27017/";
 const client = new MongoClient(uri);
 
+let cardCount = require('./cardCount.json'); // Ensure this file exists with initial count
+
 async function run() {
   try {
     await client.connect();
+    console.log("Connected successfully to MongoDB");
+
     const database = client.db('FYP');
     const toolsAndTechCollection = database.collection('ToolsandTech');
 
@@ -35,16 +39,46 @@ async function run() {
       }
     });
 
-    // app.listen(port, () => {
-    //   console.log(`Server is running on http://localhost:${port}`);
-    // });
+    // Endpoint to add a new tool
+    app.get('/get-notifications', async (req, res) => {
+      try {
+        const totalTools = await toolsAndTechCollection.countDocuments();
+        const limit = 6;
+    
+        if (totalTools > limit) {
+          const notifications = await toolsAndTechCollection.find().skip(limit).toArray();
+          res.json(notifications);
+        } else {
+          res.json([]); // No notifications if total tools are within the limit
+        }
+      } catch (error) {
+        console.error("Error fetching notifications: ", error);
+        res.status(500).send("Error fetching notifications");
+      }
+    });
+    
+    // Handle closing MongoDB connection on SIGINT
+    process.on('SIGINT', async () => {
+      await client.close();
+      console.log('MongoDB connection closed');
+      process.exit();
+    });
+
+    
 
   } catch (error) {
     console.error("Error connecting to database: ", error);
+  } finally {
+    process.on('SIGINT', async () => {
+      await client.close();
+      console.log('MongoDB connection closed');
+      process.exit();
+    });
   }
 }
 
 run().catch(console.dir);
+
 //mongosetup finished
 
 app.use(bodyParser.json());
@@ -186,7 +220,7 @@ app.post("/get-AlexaRanking", async (req, res) => {
   } catch (err) {
     console.error("Error scraping data:", err);
     res.status(500).send("Something went wrong!");
-  }
+  } 
 });
 //Get VisitorsData
 app.post("/get-VisitorsData", async (req, res) => {
@@ -288,38 +322,80 @@ app.post("/get-TopKeywords", async (req, res) => {
   }
 });
 
-//Similar Sites Data
-//Topkeywords
+//referal sites
+// app.post("/get-ReferalSites", async (req, res) => {
+//   const  url  = req.body.params.url; // Extract the 'url' query parameter
+//   try {
+//     // Simulated function to fetch HTML data from the provided URL
+//     let analyticsPage = await scrapAllData(url);
+//     // Load the HTML data using Cheerio
+//     const $ = cheerio.load(analyticsPage);
+//     // Function to fetch data from the provided HTML table (Referal Sites )
+//     const ReferalSites = (html) => {
+//       const $ = cheerio.load(html);
+//       const tableData = [];
+
+//       // Select all rows in the table body
+//       $("table.w-full.whitespace-no-wrap")
+//         .last()
+//         .find("tbody tr")
+//         .each((index, element) => {
+//           const website = $(element)
+//             .find("td.px-4.py-3 .font-semibold a")
+//             .attr("href");
+//           const ReferalSite = parseInt(
+//             $(element).find("td.px-4.py-3.text-sm").eq(0).text().trim(),
+//             10
+//           );
+
+//           tableData.push({ website, ReferalSite });
+//         });
+
+//       return tableData;
+//     };
+//     // Call the Referal Sites function to fetch data from the provided table HTML
+//     const ReferalSitesData = ReferalSites(analyticsPage);
+
+//     res.json(ReferalSitesData);
+//   } catch (err) {
+//     console.error("Error scraping data:", err);
+//     res.status(500).send("Something went wrong!");
+//   }
+// });
+
 app.post("/get-ReferalSites", async (req, res) => {
-  const  url  = req.body.params.url; // Extract the 'url' query parameter
+  const url = req.body.params.url; // Extract the 'url' query parameter
   try {
     // Simulated function to fetch HTML data from the provided URL
     let analyticsPage = await scrapAllData(url);
     // Load the HTML data using Cheerio
     const $ = cheerio.load(analyticsPage);
-    // Function to fetch data from the provided HTML table (Referal Sites )
+    // Function to fetch data from the provided HTML table (Referal Sites)
     const ReferalSites = (html) => {
       const $ = cheerio.load(html);
       const tableData = [];
 
       // Select all rows in the table body
-      $("table.w-full.whitespace-no-wrap")
-        .last()
+      $("table.w-full.whitespace-no-wrap").last()
         .find("tbody tr")
         .each((index, element) => {
           const website = $(element)
             .find("td.px-4.py-3 .font-semibold a")
-            .attr("href");
-          const ReferalSite = parseInt(
+            .text()
+            .trim(); // Extract text content of the anchor tag
+
+          const referalTraffic = parseInt(
             $(element).find("td.px-4.py-3.text-sm").eq(0).text().trim(),
             10
           );
+          console.log(website,referalTraffic)
+          tableData.push({ website, referalTraffic });
 
-          tableData.push({ website, ReferalSite });
         });
 
       return tableData;
     };
+
     // Call the Referal Sites function to fetch data from the provided table HTML
     const ReferalSitesData = ReferalSites(analyticsPage);
 
@@ -329,6 +405,9 @@ app.post("/get-ReferalSites", async (req, res) => {
     res.status(500).send("Something went wrong!");
   }
 });
+
+
+
 
 //mongosetup
 // app.use(express.json());
